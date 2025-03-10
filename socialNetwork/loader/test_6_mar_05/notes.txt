@@ -1,0 +1,8 @@
+threads = 1
+connections = 10
+duration = 60  # Each test duration in seconds
+ramp_up_start = 10  # Start at 10 req/s min for proper logging
+ramp_up_end = 40  # Max req/s
+step = 15  # Increase by 5 req/s each step
+steady_state_duration = 300  # Maintain max req/s for 5 minutes
+cooldown = 0  # Time to wait between tests

@@ -25,7 +25,7 @@ ODIR := obj
 OBJ  := $(patsubst %.c,$(ODIR)/%.o,$(SRC)) $(ODIR)/bytecode.o
 
 LDIR     = deps/luajit/src
-LIBS    := -lluajit $(LIBS)
+LIBS    := -lluajit-5.1 $(LIBS)
 CFLAGS  += -I$(LDIR)
 LDFLAGS += -L$(LDIR)
 

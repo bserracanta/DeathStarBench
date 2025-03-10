@@ -1,0 +1,10 @@
+steady state at 40rps for 10 min
+file: loader_no_ramp
+threads = 1
+connections = 1
+duration = 60  # Each test duration in seconds
+ramp_up_start = 10  # Start at 10 req/s min for proper logging
+ramp_up_end = 40  # Max req/s
+step = 15  # Increase by 5 req/s each step
+steady_state_duration = 600  # Maintain max req/s for 5 minutes
+cooldown = 0  # Time to wait between tests
