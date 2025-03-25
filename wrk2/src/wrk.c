@@ -402,7 +402,7 @@ void *thread_main(void *arg) {
     if ((cfg.print_realtime_latency) && ((thread->tid%cfg.threads) == 0)) {
         char filename[50];
         // snprintf(filename, 50, "/filer-01/datasets/nginx/url%" PRIu64 "thread%" PRIu64 ".txt", (thread->tid/cfg.threads), (thread->tid%cfg.threads));
-        snprintf(filename, 50, "%s/url%" PRIu64 "thread%" PRIu64 ".txt", getcwd(NULL,0), (thread->tid/cfg.threads), (thread->tid%cfg.threads));
+        snprintf(filename, 50, "%s/u%" PRIu64 "t%" PRIu64 ".txt", getcwd(NULL,0), (thread->tid/cfg.threads), (thread->tid%cfg.threads));
         printf("filename %s\n",filename);
         thread->ff = fopen(filename, "w");
     }
@@ -707,6 +707,7 @@ static int response_complete(http_parser *parser) {
     if (cfg.record_all_responses) {
         assert(now > c->actual_latency_start[c->complete & MAXO] );
         uint64_t actual_latency_timing = now - c->actual_latency_start[c->complete & MAXO];
+        //printf("actual_latency_timing %" PRIu64 "\n", actual_latency_timing); // BERTA
         hdr_record_value(thread->latency_histogram, actual_latency_timing);
         hdr_record_value(thread->real_latency_histogram, actual_latency_timing);
 
